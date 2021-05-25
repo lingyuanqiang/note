@@ -136,37 +136,37 @@ a.equals("b"); //true
 ## 常用的String api
 
 * int compareTo(String other) 
-  对比，在前返回负数，在后返回正数，相等返回0
+  * 对比，在前返回负数，在后返回正数，相等返回0
 * boolean empty()
-  是否为空
+  * 是否为空
 * boolean equals(Object other)
-  是否相等
+  * 是否相等
 * boolean equalsIgnoreCase(String other)
-  忽略大小写，是否相等
+  * 忽略大小写，是否相等
 * boolean starsWith(String prefix)
-  是否以字符串prefix开头
+  * 是否以字符串prefix开头
 * boolean endsWith(String suffix)
-  是否以字符串suffix结尾
+  * 是否以字符串suffix结尾
 * int indexOf(String str)
-  返回匹配str的第一个子串开始的位置
+  * 返回匹配str的第一个子串开始的位置
 * int indexOf(String str, int fromIndex)
-  从fromIndex开始，返回匹配str的第一个子串开始的位置
+  * 从fromIndex开始，返回匹配str的第一个子串开始的位置
 * int lastIndexOf(String str)
-  返回匹配str的最后一个子串开始的位置
+  * 返回匹配str的最后一个子串开始的位置
 * int lastIndexOf(String str, int fromIndex)
-  从fromIndex开始，返回匹配str的最后一个子串开始的位置
+  * 从fromIndex开始，返回匹配str的最后一个子串开始的位置
 * int length()
-  返回长度
+  v返回长度
 * String replace(CharSequence oldString, CharSequence newString)
-  可用String或StringBuilder对象作为CharSequence参数，newString替换oldString
+  * 可用String或StringBuilder对象作为CharSequence参数，newString替换oldString
 * String subString(int beginIndex)
 * String subString(int beginIndex, int endIndex)
 * String toLowerCase()
-  字符串改为小写
+  * 字符串改为小写
 * String toUpperCase()
-  字符串改为大写
+  * 字符串改为大写
 * String trim()
-  去掉头部和尾部的空白符
+  * 去掉头部和尾部的空白符
 * String join(CharSequence delimiter, CharSequence... elements)
-  java8，用给定的分隔符连接所有元素
+  * java8，用给定的分隔符连接所有元素
 
