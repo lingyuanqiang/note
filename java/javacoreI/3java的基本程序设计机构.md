@@ -170,3 +170,101 @@ a.equals("b"); //true
 * String join(CharSequence delimiter, CharSequence... elements)
   * java8，用给定的分隔符连接所有元素
 
+## StringBuilder构建字符串
+``` java
+StringBuilder builder = new StringBuilder();
+builder.append(ch);
+builder.append(str);
+String doneStr = builder.toString();
+```
+
+* **StringBuilder**中的重要方法
+  * int length()
+  * StringBuilder append(String str)
+    追加一个字符串，并返回this
+  * StringBuilder append(char c)
+  * void setCharAt(int i, char c)
+    将第I个代码单元设置为c
+  * StringBuilder insert(int offset, String str)
+    在offset位置插入一个字符串
+  * StringBuilder insert(int offset, char c)
+  * StringBuilder delete(int startIndex, int endIndex)
+  * String toString()
+
+## 格式化输出
+``` java
+String.format("hello, %s, next year, you will be %d", name, age);
+```
+
+* 转换符
+  * **d** 十进制整数
+  * **x** 十六进制整数
+  * **o** 八进制整数
+  * **f** 定点浮点数
+  * **e** 指数浮点数
+  * **g** 通用浮点数
+  * **a** 十六进制浮点数
+  * **s** 字符串
+  * **c** 字符
+  * **b** boolean
+  * **h** 散列码
+  * **%** 百分号
+  * **n** 与平台有关的行分隔符
+* 标志
+  * **+** 打印正负数符号
+  * **空格** 在正数之前添加空格
+  * **0** 数字前面补0
+  * **-** 左对齐
+  * **（** 将负数括在括号内
+  * **,** 添加分组分隔符
+  * **#** 对于f格式，包含小数点， 对于x或0格式，添加前缀0x或0
+* 日期时间转换符
+  * **c** 完整日期时间 
+  * **D** 美国格式日期  
+  * **T** 24小时时间 
+  * **r** 12小时时间 
+  * **Y** 4位数字的年 
+  * **y** 年的后两位数字 
+  * **C** 年的前两位数字 
+  * **B** 月的完整拼写(英文) 
+  * **b或h** 月的缩写 
+  * **m** 两位数字的月 
+  * **d** 两位数字的日 补零 
+  * **e** 两位数字的日 不补零
+  * **A** 星期几的完整拼写(英文)
+  * **a** 星期几的缩写 
+  * **j** 三位数的年重第几天 补零
+  * **H** 两位数的小时 前面补零 0~23
+  * **k** 两位数的小时 前面不补零 0~23
+  * **I** 两位数的小时 前面补零 01~12
+  * **l** 两位数的小时 前面不补零 1~12
+  * **M** 两位数的分钟 补零
+  * **S** 两位数的秒 补零
+  * **L** 三位数的毫秒 补零
+  * **N** 九位数的毫秒 补零
+  * **p** 上午或下午的标志
+  * **Z** 时区
+  * **s** 从格林尼治时间起得秒数
+  * **Q** 从格林尼治时间起得毫秒数
+
+
+# 控制流程
+
+## 块作用域
+
+* 块，使用 **{}** 括起来的若干，可嵌套
+* 确定变量的作用域，嵌套块不能声明相同名的变量
+  
+## 条件语句
+``` java
+if (condition){
+    statement;
+}else if (condition){ //可选，可多个else if
+    statement;
+}else{ //可选，只能一个else
+    statement;
+}
+```
+
+## while循环
+
