@@ -328,7 +328,7 @@ switch (choice){
 ### continue
 * 结束当前循环，进入下一次循环
 
-## 大数
+# 大数
 * java.math下的两个类:
   * BigInteger 整数运算
   * BigDecimal 浮点数运算
@@ -343,7 +343,7 @@ BigInteger c = a.add(b);
 BigInteger d = c.multiply(b.add(BigInteger.valueOf(2)));
 ```
 
-### 常见api
+## 常见api
 * java.math.BigInteger
   * BigInteger add(BigInteger other) 和
   * BigInteger subtract(BigInteger other) 差
@@ -369,9 +369,9 @@ BigInteger d = c.multiply(b.add(BigInteger.valueOf(2)));
   * static BigDecimal valueOf(long x, int scale)
     * 返回值等于x或10的大整数
 
-## 数组
+# 数组
 
-### 声明数组
+## 声明数组
 * 需要指出数组类型(数据元素类型紧跟[])和数组变量的名字
 * 一旦创建数组，就不能改变长度
 ``` java
@@ -391,7 +391,7 @@ new int[] {17, 19, 23, 29, 31};
 smallPrimes = new int[]{17, 19, 23, 29, 31, 37};
 ```
 
-### 访问数组元素
+## 访问数组元素
 * 数组的下标从0开始，使用 **变量[下标]** 访问
 ``` java
 int[] a = new int[100];
@@ -404,7 +404,7 @@ for (int i = 0; i<100; i++){
   * boolean，所有元素初始化为false
   * 对象数组，所有元素初始化为null,表示未存放对象
 
-### for each循环
+## for each循环
 * 可用来依次处理数组(集合)中的每一个元素，而不用考虑下标值
 ``` java
 // variable变量暂存集合中的每一个元素
@@ -421,5 +421,64 @@ for (String word: s){
 }
 ```
 
-### 数组拷贝
+## 数组拷贝
 
+* 使用Arrays类的copyOf方法(拷贝到新的数组中)
+* 拷贝的数组，扩展的话
+  * 如果是数值数组，额外元素初始化为0
+  * 布尔类型数组，则赋值false
+* 如果新数组小于原始数组，只拷贝前面的值
+``` java
+int[] luckyNumbers = {1,2,3,4,5,6,7};
+//第二个参数为新数组的长度，通常用来增加数组的大小
+int[] copyLuckyNumbers = Arrays.copyOf(luckyNumbers, luckyNumbers.length);
+luckyNumbers = Arrays.copyOf(luckyNumbers, 2 * luckyNumbers.length);
+```
+
+## 命令行参数
+* main 带有String arg[]参数，可以命令行上指定参数
+* 例如 java Message -g cruel world
+* 调用Message程序，args数组将包含以下内容
+  * args[0]: "-g"
+  * args[1]: "cruel"
+  * args[2]: "world"
+
+## 数组排序
+* 使用Arrays类中的sort方法
+``` java
+int[] a = {2,1,6,3,9};
+//该方法使用优化的快速排序算法
+Arrays.sort(a);
+```
+
+* 常用java.util.Arrays API
+  * static String toString(xxx[] a)
+    * 返回字符串,用中括号包围，逗号分隔
+  * static xxx[] copyOf(xxx[] a, int length)
+  * static xxx[] copyOfRange(xxx[] a, int start, int end)
+    * 返回与a同类型，长度为length或end-start的数组
+  * static void sort(xxx[], a)
+  * static int binarySearch(xxx[] a, xxx v)
+  * static int binarySearch(xxx[] a, int start, int end, xxx v)
+    * 使用二分查找算法查找 **有序数组** a中的v,找到返回下标，否则返回负数，-r-1是v应该插入的位置
+  * static void fill(xxx[] a, xxx v)
+    * 将数组所有元素设置为v
+  * static boolean equals(xxx[] a, xxx[] b)
+    * 如果数组大小相同，对应下标元素相同，返回true
+
+
+## 多维数组
+* 其实是数组中的数组，即数组中的元素存储的是数组
+``` java
+double[][] balance = new double[NYEARS][NRATES];
+```
+
+## 不规则数组
+* 数组中的每一行有不同的长度
+``` java
+int NMAX = 10;
+int[] odds = new int[NMAX+1][];
+for (int n=0; n<=NMAX; n++){
+  odds[n] = new int[n+1];
+}
+```
