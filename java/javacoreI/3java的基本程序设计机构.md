@@ -267,4 +267,21 @@ if (condition){
 ```
 
 ## while循环
+``` java
+while (condition){
+  statement;
+}
+```
+为true执行循环体，第一次就为false，一次也不执行
+
+```java
+do {
+  statement;
+}while (condition)
+```
+先执行后判断，必定执行一次
+
+## for循环
+
+
 
