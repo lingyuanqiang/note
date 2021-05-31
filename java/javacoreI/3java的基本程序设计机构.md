@@ -282,6 +282,144 @@ do {
 先执行后判断，必定执行一次
 
 ## for循环
+``` java
+for (int i=1; i<=10; i++){
+    statement;
+}
+```
+
+## switch语句
+``` java
+int choice = ;
+switch (choice){
+    case 1:
+        statement;
+        break;
+    case 2:
+        statement;
+        break;
+    case 3:
+        statement;
+        break;
+    case ...:
+        statement;
+        break;
+    default: //没有匹配的case标签，执行default
+        statement;
+        break;
+}
+```
+* 没有匹配的case标签，执行default
+* 直到遇到break，或者执行到switch语句的结束处为止
+* 有可能触发多个case分支
+* case标签可以为：
+  * char、byte、short、int
+  * 枚举常量
+  * java7开始，可以是字符串字面量
 
 
+## 中断控制流程的语句
+### goto语句
+* 不建议使用
+
+### break
+* 结束循环体
+
+### continue
+* 结束当前循环，进入下一次循环
+
+## 大数
+* java.math下的两个类:
+  * BigInteger 整数运算
+  * BigDecimal 浮点数运算
+* 可以处理包含任意长度数字序列的数值
+
+``` java
+BigInteger a  = BigInteger.valueOf(1000);
+//过长用这个 BigInteger a = new BigInteger("123343352345213452344352345");
+//不能使用算数运算符
+BigInteger b = new BigInteger("1111");
+BigInteger c = a.add(b);
+BigInteger d = c.multiply(b.add(BigInteger.valueOf(2)));
+```
+
+### 常见api
+* java.math.BigInteger
+  * BigInteger add(BigInteger other) 和
+  * BigInteger subtract(BigInteger other) 差
+  * BigInteger multiply(BigInteger other) 积
+  * BigInteger divide(BigInteger other) 商
+  * BigInteger mod(BigInteger other) 余数
+  * BigInteger sqrt() java9 平方根
+  * int compareTo(BigInteger other)
+    * 对比，相等0，大于正数，小于负数
+  * static BigInteger valueOf(long x)
+    * 返回值等于x的大整数
+
+* java.math.BigDecimal
+  * BigDecimal add(BigDecimal other) 和
+  * BigDecimal subtract(BigDecimal other) 差
+  * BigDecimal multiply(BigDecimal other) 积
+  * BigDecimal divide(BigDecimal other) 商
+  * BigDecimal divide(BigDecimal other, RoundingMode mode) 
+    * 如果商是无限循环小数，上一个方法抛出异常，使用该方法，第二个参数表示舍入方法
+  * int compareTo(BigDecimal other)
+    * 对比，相等0，大于正数，小于负数
+  * static BigDecimal valueOf(long x)
+  * static BigDecimal valueOf(long x, int scale)
+    * 返回值等于x或10的大整数
+
+## 数组
+
+### 声明数组
+* 需要指出数组类型(数据元素类型紧跟[])和数组变量的名字
+* 一旦创建数组，就不能改变长度
+``` java
+//创建类型为int，长度100的数组
+int[] a = new int[100];
+```
+
+* 创建数组对象，并同时初始化的简写
+``` java
+int[] smallPrimes = {2, 3, 5, 7, 11, 13};
+```
+
+* 匿名数组
+``` java
+new int[] {17, 19, 23, 29, 31};
+//分配新数组并初始化，可以用这种语法重新初始化数组，而无须创建新变量
+smallPrimes = new int[]{17, 19, 23, 29, 31, 37};
+```
+
+### 访问数组元素
+* 数组的下标从0开始，使用 **变量[下标]** 访问
+``` java
+int[] a = new int[100];
+for (int i = 0; i<100; i++){
+    a[i] = i;
+}
+```
+* 默认初始化
+  * 数字数组，所有元素初始化为0
+  * boolean，所有元素初始化为false
+  * 对象数组，所有元素初始化为null,表示未存放对象
+
+### for each循环
+* 可用来依次处理数组(集合)中的每一个元素，而不用考虑下标值
+``` java
+// variable变量暂存集合中的每一个元素
+// collection 数组或者是实现了Iterable接口的类对象
+for (variable: collection){
+    statement;
+}
+```
+
+``` java
+String[] s = {"1", "2", "3", "4"};
+for (String word: s){
+    System.out.println(word);
+}
+```
+
+### 数组拷贝
 
