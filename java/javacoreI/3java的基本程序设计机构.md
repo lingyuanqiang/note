@@ -451,7 +451,7 @@ int[] a = {2,1,6,3,9};
 Arrays.sort(a);
 ```
 
-* 常用java.util.Arrays API
+* 常用java.util.Arrays API 以下xxx表示基本类型
   * static String toString(xxx[] a)
     * 返回字符串,用中括号包围，逗号分隔
   * static xxx[] copyOf(xxx[] a, int length)
